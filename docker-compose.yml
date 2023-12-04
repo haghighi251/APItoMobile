@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  admin:
+    build: ./admin
+    ports:
+      - '4000:3000'
+    depends_on:
+      - api
+
+  web:
+    build: ./web
+    ports:
+      - '3000:3000'
+    depends_on:
+      - api
+
+  api:
+    build: ./api
+    ports:
+      - '3001:3000'
+
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+  # Uncomment if you use Docker for building the Expo app
+  # mobile:
+  #   build: ./mobile
+  #   volumes:
+  #     - ./mobile:/usr/src/app
+
+volumes:
+  mongo-data:
