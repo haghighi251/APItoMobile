@@ -27,10 +27,10 @@ services:
       - mongo-data:/data/db
 
   # Uncomment if you use Docker for building the Expo app
-  # mobile:
-  #   build: ./mobile
-  #   volumes:
-  #     - ./mobile:/usr/src/app
+  mobile:
+    build: ./mobile
+    volumes:
+      - ./mobile:/usr/src/app
 
 volumes:
   mongo-data:
